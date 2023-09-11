@@ -1,7 +1,7 @@
 # Author: Kimin Lee (pokaxpoka@gmail.com), Changho Hwang (ch.hwang128@gmail.com)
 # GitHub: https://github.com/chhwang/cmcl
 # ==============================================================================
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 def feature_sharing(features):
     """Feature sharing operation.

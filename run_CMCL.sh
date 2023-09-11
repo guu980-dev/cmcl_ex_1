@@ -1,6 +1,10 @@
 ###### Example script to run the code ######
 #!/bin/sh
 
+activate () {
+  . .venv/bin/activate
+}
+
 # dataset:    Supports cifar, svhn.
 # model_type: Supports vggnet, googlenet, resnet.
 # batch_size: We use batch size 128.
@@ -9,7 +13,9 @@
 # k:          Overlap parameter.
 # beta:       Penalty parameter.
 # feature_sharing: Use feature sharing if True.
-COMMAND="python src/ensemble.py \
+activate
+COMMAND="
+  python3 src/ensemble.py \
 --dataset=cifar \
 --model_type=resnet \
 --batch_size=128 \

@@ -1,7 +1,8 @@
 # Author: Kimin Lee (pokaxpoka@gmail.com), Changho Hwang (ch.hwang128@gmail.com)
 # GitHub: https://github.com/chhwang/cmcl
 # ==============================================================================
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_eager_execution()
 import cifar
 import layers
 import resnet

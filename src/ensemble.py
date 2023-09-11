@@ -3,7 +3,8 @@
 # ==============================================================================
 from __future__ import print_function
 from datetime import datetime
-import tensorflow as tf
+# import tensorflow.compat.v1 as tf
+import tensorflow.compat.v1 as tf
 import numpy as np
 import cifar
 import svhn
@@ -17,7 +18,7 @@ tf.app.flags.DEFINE_integer('num_model', 5, 'How many models to ensemble.')
 tf.app.flags.DEFINE_string('loss_type', 'cmcl_v1', 'Supported: independent, mcl, cmcl_v0, cmcl_v1')
 tf.app.flags.DEFINE_integer('k', 4, 'Overlap parameter')
 tf.app.flags.DEFINE_integer('gpu', 0, 'GPU to use')
-tf.app.flags.DEFINE_float('beta', 0.75, '')
+tf.app.flags.DEFINE_float('beta', 0.75, 'beta value')
 tf.app.flags.DEFINE_boolean('feature_sharing', True, 'Use feature sharing if True.')
 tf.app.flags.DEFINE_boolean('test', True, 'Run test if True else run train')
 
@@ -66,6 +67,7 @@ def run_train(sess):
     # loop through training steps
     train_idx = np.array(range(FLAGS.batch_size))
     for step in xrange(model.MAX_STEPS):
+    # for step in range(model.MAX_STEPS):
         # range of the next train data
         train_idx[train_idx >= dataset.TRAIN_SIZE] -= dataset.TRAIN_SIZE
 
