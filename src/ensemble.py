@@ -66,7 +66,7 @@ def run_train(sess):
 
     # loop through training steps
     train_idx = np.array(range(FLAGS.batch_size))
-    for step in xrange(model.MAX_STEPS):
+    for step in range(model.MAX_STEPS):
     # for step in range(model.MAX_STEPS):
         # range of the next train data
         train_idx[train_idx >= dataset.TRAIN_SIZE] -= dataset.TRAIN_SIZE
